@@ -311,6 +311,15 @@ program(String... args):
 				)
 	.
 	
+	let John := Student {
+				name:"John",
+				password: "pass",
+				contactInfo: {
+					address: { steet: "strr", city: "cit", country: "Cou"},
+					phones: {home: "xx-xxxx-xxxx", "office": "xxx-xxx-xxx"}
+				},
+			} 
+	
 	Tom's wallet := Wallet ( Tom, Money ( 1000, '$') ).
 	
 	let Arabic, English, History := 
