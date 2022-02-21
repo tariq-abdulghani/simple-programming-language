@@ -137,6 +137,7 @@ Function main():
 --------------------------------------------------------------------------------------------------------------------------------------------
 # Simple programming  language
 
+```
 abstract type WebServer:
 	
 	run: int #port -> None;
@@ -234,8 +235,11 @@ program(String... args):
 	hondaCar speedDown 10
 	
 	return 11 if a >= b else 10
-X <- 11 if a >= b  else 10
+	X <- 11 if a >= b  else 10
+```
 —---------------------------------------------------------------------------------------------------------
+
+```
 let Student:
 	wallet Wallet
 	name String
@@ -338,7 +342,7 @@ program(String... args):
 	let claculator := Calculator ()
 	let sum := claulator add 1, 2
 
-
+```
 
 	
 
