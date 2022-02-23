@@ -18,340 +18,157 @@ that actually refers to structures and impiels
  its not a omplete work no compilers or even grammar but its my thoughts that i wish
  to be completed one day.
  
- 
- My-programming-language
----------------------------------------------------------------------------
-# Mini Math proposal
-Let
-Let  x = 10
-
-#Constant
-Let PI = 3.14
-
-—---------------------
-
-Function <name > (arg list) -> type:
-	// body
-
-—-----------------------
-
-Structure <name>:
-	init():
-	// init body
-
-—-----------------------
-
-Protocol <name>:
-	// collection of procedures
-
-For i in range(10):
-	// do something
-
-
-English like,  math like,
-high readability, simple,
- more natural and close to natural languages
-consistent, logic,
-concurrent 
-
-
-2 if <bool expression>:
-	//
-   Else if <bool expression>:
-	//
-   Else:
-	//
-
-4 for  … in … :
-	//
-
-5 while …. :
-	//
-
-6 prototype inheritance
-
-7 operators:
-	Logical : and  or  not  xor
-	Relational: > ,< ,== ,!= ,>= ,<=,   , a >= x<= b
-	Math: + - * % ^ 
-	Slice: [a,]
-	Evaluate: ()
-
-
-Structure Person :
-	Name  String
-	birthDate Date
-	Age Integer
-	
-	Represent  f(this):
-		Return “”
-
-Protocol Callable:
-	Call: this -> Any
-
-Structure Function Supports Callable, Representable:
-	[x: String]: Any
-	 Call: f(this):
-	//
-	
-	
-Protocol Representable:
-	Represent: this -> String;
-
-Protocol Iterable<T>:
-	Next: this -> T
-	hasNext:  this -> Bool
-
-
-Bool = {0,1} 
-
-Let p, q  ∊ Person
-
-->set
-Let People = {x : ∊ Person}
-
--> list // list protocol has multiple impl
-Let Books  = [ b  : ∊ Book]
-
--> tuple
-Let Point = (x, y, z) : x,y,z  ∊ Integer
-
-
-Multiply: Int * Int -> Int  // declare function
-
-Multiply(a Int , b Int):
-	Return a *b
-
-Prototype Printer:
-
-	Local String model
-
-	Function print(this) -> None:
-		Console print “Hello”
-
-Function main():
-	
-	Let printer = Printer()
-	Printer print
-	
---------------------------------------------------------------------------------------------------------------------------------------------
-# Simple programming  language
-
+ -----------------------------------------------------------------------------------------
 ```
-abstract type WebServer:
 	
-	run: int #port -> None;
-	
-type MyServer is WebServer:
+class Timer:
 
-	runOnPort(int port):
-		super run port
-  
-
-abstract type Iterator<T>:
-	hasNext: None -> bool
-	next: None -> T
-
-type Range is Iterator<int> and Callable:
-	
-	instance (local int value, local int limit).
-	
-	call (int value, int limit):
-		return MyRange instance value, limit
-	
-	hasNext :
-		return value < limit
-	
-	next :
-		return value := value + 1
+	#static method 
+	every(int period, String perioSpecifier, Callable callBack) None:
+		---
 
 
-abstract type Engine :
-	
-	model String
-	speedUp: int  speed| None -> None
-	speedDown: int  speed| None -> None
+class Tank:
+	int level
+	int minLevel
+	int maxLevel
 
-type HondeV8 is Engine:
-	// pla pla pla
+	#method
+	startDrain() None:
+		---
+	#method
+	stopDrain() None:
+		---
+
 	
-type Car :
-	
-	instance(local Engine engine)
-	
-	withEngine (Engine engine):
-		return Car instance engine
-	
-	speedUp(int speed):
-		engine speedUp speed
-	.
-	
-	speedDown(int speed):
-	engine speedDown speed
-	.
+class Pump:
+
+	function start(self) None:
+		---
+
+	function stop(self) None:
+		---
 
 
-program(String... args):
-	
-	let file <- FileSystem open "c://filedirectory"
-	
-	// FileSystem open "c://filedirectory" -> file
-
-	if file::( not directory and readable ) then
-		while line := file readLine :
-			Console write line
-	else
-		Console write "is directory"
-	.
-
-	Console write "Hello Simple" if true
-	
-	for i in [1:10]
-		Console write i
-	.
-	
-	let server <- MyServer instance
-	server runOnPort 9000
-	
-	if money > 1000:
-		Console write " "
-		
-	else if money > 600:
-		Console write " "
-		
-	else if money > 200:
-		Console write " "
-		
-	else:
-		Console write " "
-	.
-	
-	for num in Range (1, 10):
-		Console write num
-	.
-	
-	let hondaCar <- Car withEngine (HondeV8 model '12e-cde').
-	hondaCar speedUp 10
-	hondaCar speedDown 10
-	
-	return 11 if a >= b else 10
-	X <- 11 if a >= b  else 10
-```
-—---------------------------------------------------------------------------------------------------------
-
-```
-let Student:
-	wallet Wallet
-	name String
-	password String
-	courses Collection<Course>
-	contactInfo ContactInfo
-	
-	takeCourse (Course c) None:
-		// pla pla
-
-	cancelCourse (Course c) None:
-		// pla pla
-
-	pay(int amount) None:
-		// pla pla
-	
-	
-let Wallet:
-	id String
-	student Student
-	amount Money
-	
-	withdraw (Money money) None:
-		// pla pla
-
-	deposit(Money money) None:
-		// pla pla
+function observeLevelAndAct (Tank tank, Pump pump) f() None :
+	return function () None:
+		if tank's level <= tank's minLevel:
+			tank stopDrain()
+			pump start()
+		else if tank's level >= tank's maxLevel:
+			tank startDrain()
+			pump stop()
 
 
-let Course:
-	name String
-	price Money
-	duration int
-	capacity int
-	enrolledCount int
-	students Collection<Student>
+program(String... args) int:
 	
-	full() None:
-		// pla pla
-
-
-let Money is Scalar:
-	quantity int
-	currency String
-	
-	# add, multip, subt, div 
-
-let Address:
-	street String
-	city String
-	country String
-	
-let ContactInfo:
-	address Address
-	phones:
-		home TelephoneNumber
-		office MobileNumber
-	.
-
-program(String... args):
-	
-	let Tom := Student (
-				"Tom", 
-				"password",
-				ContactInfo (
-					Address("street", "city", "country"),
-					Phones("xxx-xxx-xxx", "yyy-yyy-yyy")
-					)
-				)
-	.
-	
-	let John := Student {
-				name:"John",
-				password: "pass",
+	let Lisa := Student with {
+				name:"Lisa",
+				password: "passLisa",
 				contactInfo: {
-					address: { steet: "strr", city: "cit", country: "Cou"},
-					phones: {home: "xx-xxxx-xxxx", "office": "xxx-xxx-xxx"}
+					address: { steet: "strr", city: "cit", country: "Cou" },
+					phones: { home: "xx-xxxx-xxxx", "office": "xxx-xxx-xxx" }
 				},
-			} 
-	
-	Tom's wallet := Wallet ( Tom, Money ( 1000, '$') ).
-	
-	let Arabic, English, History := 
-		Course( "Arabic", Money (20, '$'), 4 weeks , 10 , 0),
-		Course( "English", Money (20, '$'), 4 weeks , 10 , 0),
-		Course( "History", Money (20, '$'), 4 weeks , 10 , 0)
-	.
-	
-	// Tom takeCourse Arabic and English and History.
-	// method invocation as verbs or operator
-	Tom takeCourse Arabic, 
-		and English, 
-		and History if price of History <= 15 '$', 
-	then
-		pay 20,
-		and 20,
-	then 
-		cancelCourse History
+			}
 
-	// member expression # "of", "'s"
-	Console write street of address of Tom's contactInfo.
-	Console write "remaining := " + amount of Tom's wallet.
+	Lisa's wallet := Wallet with { 
+					student: Lisa, 
+					amount: Money(1000, 's')
+				}.
+	
+	let Arabic := Course with {
+			name: "Arabic",
+			price: Money(20, '$'),
+			duration: (4, 'week'),
+			capacity: 10,
+			enrolledCount: 0
+		},
 
-	let courses := Collection (Arabic, English, History).
-	// iteration expression
-	for course in courses:
-		Console write course
+		English := Course with {
+			name: "English",
+			price: Money(20, '$'),
+			duration: (4, 'week'),
+			capacity: 10,
+			enrolledCount: 0
+		},
 
-	let claculator := Calculator ()
-	let sum := claulator add 1, 2
+		History := Course with {
+			name: "History",
+			price: Money(20, '$'),
+			duration: (4, 'week'),
+			capacity: 10,
+			enrolledCount: 0
+		}
+
+	Arabic's duration := Duration ( 5, 'week')
+	
+	Tom takeCourse (Arabic)
+	Tom takeCourse (English)
+	Tom takeCourse (History)
+	Tom pay (20)
+	Tom pay (15)
+	Tom cancelCourse (History)
+
+	-- if single argument we can ommit praces --
+
+	Lisa takeCourse Arabic
+	Lisa takeCourse English
+	Lisa takeCourse History
+	Lisa pay 20
+	Lisa pay 15
+	Lisa cancelCourse History
+
+	let tank1 := Tank with { level: 10, minLevel: 1, maxLevel: 10 }
+	let fillPump := Pump instance
+
+	Timer every ( 20, 'second', observeLevelAndAct (tank1, fillPump) )
+	--
+	Timer every ( 20, 'second', ...-> 
+		if tank1's level <= tank1's minLevel:
+			tank1 stopDrain()
+			fillPump start()
+		else if tank1's level >= tank1's maxLevel:
+			tank1 startDrain()
+			fillPump stop()
+		)
+	--
+
+	Console write ("Hello Simple " + " ").
+
+	let currentSpeed := car's motoSpeed * car's gearRatio.
+
+	Console write (street of address of Tom's contactInfo + " ") 
+
+	let adj := "tall" if Tom's hieght > Length( 170, 'cm') else "short"
+
+	let succeeded := true if Jane's grade >= 50 else false
+
+	Console write (f"Tom is ${adj}")
+
+	let sb := StringBuilder instance
+	
+	sb append ("Hello ")
+	   append ("World ")
+	   append ("Simple ")
+	   append ("programming language!. ")
+	   append (NEW_LINE)
+	   build().
+
+
+	let pdfWriter := PdfWriter with { font :'', fontSize: '', ...}.
+
+	pdfWriter addHeader ("header")
+			  addLine("simple" and "Wow.")
+			  addTable (data)
+			  save ("data-summery").
+
+	let mult := x,y -> x*y .
+	Console write ( mult (10, 2)) .
 
 ```
 
+
+
+	
 	
 
