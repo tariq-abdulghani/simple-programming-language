@@ -19,6 +19,30 @@ that actually refers to structures and impiels
  to be completed one day.
  
  -----------------------------------------------------------------------------------------
+ ```
+let Grade = g : 0 <= g<= 100;
+let Fragile = f: f < 40;
+
+let n5(x)= x -(x%5) +5;
+
+let grade(x)= {
+    n5(x) if ( n5(x)-x )< 3,
+    x if x < 38
+}
+
+procedure StudentGrades () None :
+
+    studentGrades = [12, 34 ....];
+    finalGrades = [];
+
+    for studentGrade in studentGrades do
+        finalGrades push(grade(studentGrade))
+    end for
+
+    sout printLine(finalGrades)
+end grade
+ ```
+ -----------------------------------------------------------------------------------------
 ```
 	
 class Timer:
