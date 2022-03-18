@@ -12,13 +12,83 @@ that actually refers to structures and impiels
  so why not to think in that way why not to be clear and write in a formal\
  way what we want
  why not to map object methods to verbs ?
- and refer to its member like the way we refer things what is the hill is "." .
+ and refer to its member like the way we refer things what is the hell is "." .
  
  this is just my thoughts of what a programming language may be
  its not a omplete work no compilers or even grammar but its my thoughts that i wish
  to be completed one day.
  
+ 
+ ```
+// expression
+// unified model every thing is a concept
+// concept has a name and restrictions based on primitives or 
+// other concepts we alias cocepts to use same restrictions but
+// with different semantics
+// it can abstract objects, operations , and procedures
+
+-- concept Vector: v where
+	v = (v1, .., vn), n > 0, vi is real
+
+	let x,y: Vector then
+
+	x+y = x1+y1, .., xn+yn;
+
+	x * y = x1*y1, .., xn * yn;
+--
+
+-- concept Person: p where
+	p ={
+		name, 
+		age, 
+		birthDate, 
+		email, 
+		password, 
+		..etc
+	}
+
+	let p1, p2 : Person then
+
+		p1 = p2 :=  p1[ email and name ] = p2 [email and name]
+		repr(p1) := "{name: ${p1'name}"
+--
+
+-- concept Webserver: web where 
+	web = {
+		port,
+		staticFilesDir,
+		....
+	}
+
+	web run (port) ->
+		web'port = port
+		// do some logic ...
+
+
+	web on () ->
+		// do some logic ...
+
+
+	web stop () ->
+		// clean up logic
+--
+
+let App : Application where 
+	entryPoint(*Words) ->
+		let port = 8888;
+		if 'port=\nums\' match any word in Words then
+			wordIncludesPort = find word in Words where port=\nums\' match word;
+			port = someRegex getFirstMatch (wordIncludesPort);
+
+		let server: WebServer with {port:port}
+		server on()
+		onError e ->
+			sout printLine(e stackTrace)
+			server stop();
+ ```
+ 
  -----------------------------------------------------------------------------------------
+ 
  ```
 let Grade = g : 0 <= g<= 100;
 let Fragile = f: f < 40;
