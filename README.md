@@ -262,7 +262,46 @@ program(String... args) int:
 ```
 
 
+```
+goals be 
+-readable
+-easy to use and write large scale apps easy
+- dynamic typed or static typed?
+	dynamic types typ checking is made at run time
+	static is the opposite
 
+	how to get best of both worlds?
+
+	let x = 0 
+	let x: int
+
+	'let x = 0' <==> 'let x: int'
+	'const x = 0'
+
+	fn add(x: int, y: int)-> int :
+		ret x + y
+
+
+	class Person  implements User:
+
+		-static id: int
+		-name: string
+		-email: string
+		-password: string
+
+		init(self, name:string, email:string, password:string):
+			this.name = name
+			this.email = email
+			this.password = password
+
+		--override
+		fn toString()-> String:
+			ret `${name}`
+
+		static fn generateId()->int:
+			ret ++id
+
+```
 	
 	
 
