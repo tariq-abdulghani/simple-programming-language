@@ -38,3 +38,26 @@ so our approach is not very precise neither abstract
 it really raises the flag of a need of formal way to describe
 languages in a way that answers the question:
 How its powerful andm what set of concepts its really good at?
+
+
+```xscript
+$Statement class:
+    $template := """
+        <ID>:
+        [TAB<A> <TYPE>]
+        [<F>([<a> <TYPE>])-> <TYPE>:
+            [TAB STMT]
+        ]
+    ""
+
+    $parse($env):
+    ....
+
+
+referencing variables
+assigning types to variables
+must express how to access environmental variables (varibales in some scope)
+
+declarative language that can  express things in formal way
+providing lower level (explaining layer to the text provided)
+```
