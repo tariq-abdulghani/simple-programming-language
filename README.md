@@ -22,6 +22,7 @@ the expressivness of a language ?
 ..recursion is amazing in describing many things.
 
 ### Reflection
+`The ability of a programming language to be its own metalanguage is called reflection`
 ..when objects can see their descriptions and their properties
 ..and access their meta data is abery strong feature and reduced
 ..lines of code that describe and use the concept so we can define
