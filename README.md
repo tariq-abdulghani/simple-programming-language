@@ -42,23 +42,76 @@ How its powerful andm what set of concepts its really good at?
 
 
 ```xscript
-$Statement class:
-    $template := """
-        <ID>:
-        [TAB<A> <TYPE>]
-        [<F>([<a> <TYPE>])-> <TYPE>:
-            [TAB STMT]
-        ]
-    ""
+// I WANNA DESCRIBE MY PRO LANG BY ANOTHER LANG:
+// --------------------------------------------
 
-    $parse($env):
-    ....
+$ statment FUNC_DECL[$scope]
+        `
+        func <ID> (<a_i> <T_i> )<R>{
+            // stmts is reference to zero or moew stmt but not part of the syntax
+           --stms-- [STMT ;]
+        }
+    `
+    where
+        0 < i < 20, a matches($names_regex), T  is a TYPE, R  is a TYPE
+
+    exec_stmt
+        create sc Sope
+        $scope.append(sc)
+        let args: (text, struct)[] := []
+        for j in i do
+            args.append(($a_j , $T_j))
+        end
+        sc.append('args', args)
+        sc.appendStatmens($smts)
+end
+```
+```xscript
+$ expression FUNC_CALL [$scope, $line]
+    `<ID>(<v_i> )`
+    where
+        0 < i < 20,
+
+    exec_stmt
+        node := $scope.rerieve($ID)
+        if node then
+            args := node.retrieve('args')
+            for j in i do
+                // name binding
+               node.append(args_j, $v_j)
+               try
+                   result:= node.eval()
+                   return result
+                catch e
+                    error e.message
+            end
+        else
+            error '$ID is not defined line $line'
+
+end
+```
+```xscript
+$ modifier ASYNC_MOD
+    `async <STMT:FUNC_DECL>`
+end
+```
+```typescript
+// each scope is associated to set of  statements
+// each scope represents a node in AST by some how
+//
+
+// x script has 3 levels lang
+// higher level is the meta lang its the lang that u can use to describe
+// and extend the lang
+
+// lvl 2 is the api level or developer level which is used
+// lvl 3 is the low level which is byte code
 
 
-referencing variables
-assigning types to variables
-must express how to access environmental variables (varibales in some scope)
+// referencing variables
+// assigning types to variables
+// must express how to access environmental variables (varibales in some scope)
 
-declarative language that can  express things in formal way
-providing lower level (explaining layer to the text provided)
+// declarative language that can  express things in formal way
+// providing lower level (explaining layer to the text provided)
 ```
