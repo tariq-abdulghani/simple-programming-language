@@ -115,3 +115,29 @@ end
 // declarative language that can  express things in formal way
 // providing lower level (explaining layer to the text provided)
 ```
+```
+// how this will affect the type system?
+// how to check if some thing is  some thing by type or by criteria ?
+// how to check the match of some template to some text?
+// how to check for syntax errors??
+// how to traverse any nested template fragments to any level?
+// how to avoid collicions?
+// what are the basic structures that can build a lang of lang?
+
+algorithm validateTemplate(template):
+	if (all tokens match & 
+	all generic vars are valida & 
+	sub templates are valid):
+	return true else false
+
+end
+
+algorithm template_matching_algorithm(template):
+	finde templates that its first token matches the current token
+		if the first one succeeded countinue 
+		else try the next one
+		if  none worked print the syntax error
+		is there is more than one error from different candidate template
+		print list of template names and error and syntax is not exact error
+end
+```
